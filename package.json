@@ -1,0 +1,30 @@
+{
+  "name": "MBTL",
+  "version": "1.0.0",
+  "description": "The Monthly Budget Tracking Tool (MBTC) helps users keep track of expenses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fatymahmed/MBTL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fatymahmed/MBTL/issues"
+  },
+  "homepage": "https://github.com/fatymahmed/MBTL#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.3",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  }
+}
