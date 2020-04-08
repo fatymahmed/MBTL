@@ -11,7 +11,7 @@ export const initConnection = async (): Promise<Mongoose> => {
   return mongoose.connect(mongoUrl, {
     socketTimeoutMS: 10000,
     useNewUrlParser: true,
-    user: mongoUsername,
-    pass: mongoPassword
+    user: process.env.MONGO_USERNAME,
+    pass: process.env.MONGO_PASSWORD,
   });
 };

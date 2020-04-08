@@ -1,3 +1,5 @@
+import * as dotenv from "dotenv";
+dotenv.config();
 import express, { Request, Response } from "express";
 import { initConnection } from "./core/database";
 import { UsersController } from "./components/helloworld/users.controller";
