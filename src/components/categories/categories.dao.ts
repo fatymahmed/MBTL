@@ -7,10 +7,17 @@ export class CategoriesDao {
   }
 
   findCategory(name: String) {
-    const category = Category.findOne({ name: name });
-    if (category) {
-      return true;
-    }
+    Category.find({ name: name })
+      .then(function (category) {
+        console.log("cat is: ", category);
+        if (category.length > 0) {
+          console.log("record found is", category);
+          return true;
+        }
+      })
+      .catch(function (err) {
+        console.log("err is", err);
+      });
     return false;
   }
 }

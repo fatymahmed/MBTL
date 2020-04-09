@@ -10,7 +10,8 @@ export class CategoriesService {
   create(category: typeof Category) {
     if (this.categoriesDao.findCategory(category.name)) {
       console.log("Category already exists");
+    } else {
+      return this.categoriesDao.create(category);
     }
-    return this.categoriesDao.create(category);
   }
 }
