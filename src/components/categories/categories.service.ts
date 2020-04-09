@@ -6,7 +6,11 @@ export class CategoriesService {
   constructor() {
     this.categoriesDao = new CategoriesDao();
   }
+
   create(category: typeof Category) {
+    if (this.categoriesDao.findCategory(category.name)) {
+      console.log("Category already exists");
+    }
     return this.categoriesDao.create(category);
   }
 }

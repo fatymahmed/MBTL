@@ -5,4 +5,12 @@ export class CategoriesDao {
     const newCategories = new Category(category);
     return newCategories.save();
   }
+
+  findCategory(name: String) {
+    const category = Category.findOne({ name: name });
+    if (category) {
+      return true;
+    }
+    return false;
+  }
 }
