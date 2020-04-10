@@ -19,7 +19,12 @@ const start = async () => {
       console.log("Express server running at port 3000");
     });
 
+    // Create a Category
     app.post("/categories", categoriesController.create);
+
+    // List all Categories
+    app.get("/categories", categoriesController.index);
+
     console.log("Hello TypeScript");
   } catch (error) {
     console.log(error);

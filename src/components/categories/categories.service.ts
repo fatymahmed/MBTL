@@ -10,4 +10,9 @@ export class CategoriesService {
   create(category: typeof Category) {
     this.categoriesDao.create(category);
   }
+
+  async index() {
+    const categories = await this.categoriesDao.index();
+    return categories;
+  }
 }

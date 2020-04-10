@@ -11,4 +11,14 @@ export class CategoriesDao {
 
     return newCategories;
   }
+
+  async index() {
+    const categories = await Category.find(function (err, cats) {
+      if (err) {
+        console.log(err);
+      }
+    });
+
+    return categories;
+  }
 }
