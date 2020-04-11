@@ -15,4 +15,8 @@ export class CategoriesService {
     const categories = await this.categoriesDao.index();
     return categories;
   }
+
+  async destroy(id) {
+    this.categoriesDao.destroy(id);
+  }
 }

@@ -21,4 +21,15 @@ export class CategoriesDao {
 
     return categories;
   }
+
+  async destroy(id) {
+    const category = await Category.findByIdAndRemove(id, function (
+      err,
+      category
+    ) {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
 }

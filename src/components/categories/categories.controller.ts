@@ -7,6 +7,7 @@ export class CategoriesController {
     this.categoriesService = new CategoriesService();
     this.create = this.create.bind(this);
     this.index = this.index.bind(this);
+    this.destroy = this.destroy.bind(this);
   }
   async create(request: Request, response: Response) {
     try {
@@ -21,6 +22,15 @@ export class CategoriesController {
     try {
       const categories = await this.categoriesService.index();
       response.send({ ok: true, categories });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async destroy(request: Request, response: Response) {
+    try {
+      this.categoriesService.destroy(request.params.id);
+      response.send({ ok: true });
     } catch (error) {
       console.log(error);
     }

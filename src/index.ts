@@ -25,6 +25,9 @@ const start = async () => {
     // List all Categories
     app.get("/categories", categoriesController.index);
 
+    // Delete a Category
+    app.delete("/categories/:id", categoriesController.destroy);
+
     console.log("Hello TypeScript");
   } catch (error) {
     console.log(error);
