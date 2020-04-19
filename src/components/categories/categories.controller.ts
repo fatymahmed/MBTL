@@ -6,8 +6,8 @@ export class CategoriesController {
   constructor() {
     this.categoriesService = new CategoriesService();
     this.create = this.create.bind(this);
-    this.index = this.index.bind(this);
-    this.destroy = this.destroy.bind(this);
+    this.list = this.list.bind(this);
+    this.delete = this.delete.bind(this);
   }
   async create(request: Request, response: Response) {
     try {
@@ -18,18 +18,18 @@ export class CategoriesController {
     }
   }
 
-  async index(request: Request, response: Response) {
+  async list(request: Request, response: Response) {
     try {
-      const categories = await this.categoriesService.index();
+      const categories = await this.categoriesService.list();
       response.send({ ok: true, categories });
     } catch (error) {
       console.log(error);
     }
   }
 
-  async destroy(request: Request, response: Response) {
+  async delete(request: Request, response: Response) {
     try {
-      this.categoriesService.destroy(request.params.id);
+      this.categoriesService.delete(request.params.id);
       response.send({ ok: true });
     } catch (error) {
       console.log(error);

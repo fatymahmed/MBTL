@@ -12,24 +12,20 @@ export class CategoriesDao {
     return newCategories;
   }
 
-  async index() {
-    const categories = await Category.find(function (err, cats) {
-      if (err) {
-        console.log(err);
-      }
-    });
-
-    return categories;
+  async list() {
+    try {
+      const categories = await Category.find();
+      return categories;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  async destroy(id) {
-    const category = await Category.findByIdAndRemove(id, function (
-      err,
-      category
-    ) {
-      if (err) {
-        console.log(err);
-      }
-    });
+  async delete(id) {
+    try {
+      const category = await Category.findByIdAndRemove(id);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

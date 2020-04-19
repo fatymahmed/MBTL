@@ -23,10 +23,10 @@ const start = async () => {
     app.post("/categories", categoriesController.create);
 
     // List all Categories
-    app.get("/categories", categoriesController.index);
+    app.get("/categories", categoriesController.list);
 
     // Delete a Category
-    app.delete("/categories/:id", categoriesController.destroy);
+    app.delete("/categories/:id", categoriesController.delete);
 
     console.log("Hello TypeScript");
   } catch (error) {

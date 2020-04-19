@@ -11,12 +11,12 @@ export class CategoriesService {
     this.categoriesDao.create(category);
   }
 
-  async index() {
-    const categories = await this.categoriesDao.index();
+  async list() {
+    const categories = await this.categoriesDao.list();
     return categories;
   }
 
-  async destroy(id) {
-    this.categoriesDao.destroy(id);
+  async delete(id) {
+    this.categoriesDao.delete(id);
   }
 }
