@@ -5,15 +5,29 @@ import bodyParser from "body-parser";
 import { initConnection } from "./core/database";
 import { UsersController } from "./components/helloworld/users.controller";
 import { CategoriesController } from "./components/categories/categories.controller";
+import authRoutes from "../routes/auth-routes";
 
 const start = async () => {
   try {
     const usersController = new UsersController();
     const categoriesController = new CategoriesController();
     const app = express();
+
+    // set up view engine
+    app.set("view engine", "ejs");
+
+    // Set up routes
+    app.use("/auth", authRoutes);
+
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     await initConnection();
+
+    // Create Home route
+    app.get("/", (req, res) => {
+      res.render("home");
+    });
+
     app.get("/hello", usersController.createUserHandler);
     app.listen(3000, () => {
       console.log("Express server running at port 3000");
