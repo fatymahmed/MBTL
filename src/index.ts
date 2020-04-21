@@ -6,6 +6,7 @@ import { initConnection } from "./core/database";
 import { UsersController } from "./components/helloworld/users.controller";
 import { CategoriesController } from "./components/categories/categories.controller";
 import authRoutes from "../routes/auth-routes";
+const passportSetup = require("../config/passport-setup");
 
 const start = async () => {
   try {
