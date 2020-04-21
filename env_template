@@ -1,2 +1,5 @@
 MONGO_USERNAME=<username>
 MONGO_PASSWORD=<password>
+CLIENT_ID=<id>
+CLIENT_SECRET=<secret>
+COOKIE_KEY=<cookie>
