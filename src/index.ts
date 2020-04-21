@@ -2,6 +2,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
+import cookieSession from "cookie-session";
+import passport from "passport";
 import { initConnection } from "./core/database";
 import { UsersController } from "./components/helloworld/users.controller";
 import { CategoriesController } from "./components/categories/categories.controller";
@@ -16,6 +18,17 @@ const start = async () => {
 
     // set up view engine
     app.set("view engine", "ejs");
+
+    app.use(
+      cookieSession({
+        maxAge: 24 * 60 * 60 * 1000,
+        keys: [process.env.COOKIE_KEY],
+      })
+    );
+
+    // Initialize Passport
+    app.use(passport.initialize());
+    app.use(passport.session());
 
     // Set up routes
     app.use("/auth", authRoutes);
