@@ -8,6 +8,7 @@ import { initConnection } from "./core/database";
 import { UsersController } from "./components/helloworld/users.controller";
 import { CategoriesController } from "./components/categories/categories.controller";
 import authRoutes from "../routes/auth-routes";
+import profileRoutes from "../routes/profile-routes";
 const passportSetup = require("../config/passport-setup");
 
 const start = async () => {
@@ -30,12 +31,13 @@ const start = async () => {
     app.use(passport.initialize());
     app.use(passport.session());
 
-    // Set up routes
-    app.use("/auth", authRoutes);
-
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     await initConnection();
+
+    // Set up routes
+    app.use("/auth", authRoutes);
+    app.use("/profile", profileRoutes);
 
     // Create Home route
     app.get("/", (req, res) => {
