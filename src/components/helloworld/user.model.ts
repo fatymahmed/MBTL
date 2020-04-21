@@ -6,15 +6,18 @@ const UserSchema = new Schema(
   {
     firstname: {
       type: String,
-      required: [true, "First name is required"]
+      required: [true, "First name is required"],
     },
     lastname: {
-      type: String
-    }
+      type: String,
+    },
+    googleId: {
+      type: String,
+    },
   },
   {
     timestamps: true,
-    collection: "users"
+    collection: "users",
   }
 );
 
