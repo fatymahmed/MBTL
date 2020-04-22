@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import cookieSession from "cookie-session";
 import passport from "passport";
 import { initConnection } from "./core/database";
-import { UsersController } from "./components/helloworld/users.controller";
+import { UsersController } from "./components/users/users.controller";
 import { CategoriesController } from "./components/categories/categories.controller";
 import authRoutes from "../routes/auth-routes";
 import profileRoutes from "../routes/profile-routes";
@@ -41,7 +41,7 @@ const start = async () => {
 
     // Create Home route
     app.get("/", (req, res) => {
-      res.render("home");
+      res.render("home", { req: req });
     });
 
     app.get("/hello", usersController.createUserHandler);
