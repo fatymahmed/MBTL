@@ -5,12 +5,16 @@ export class UsersController {
   usersService: UserService;
   constructor() {
     this.usersService = new UserService();
-    this.createUserHandler = this.createUserHandler.bind(this);
+    this.createUser = this.createUser.bind(this);
   }
-  async createUserHandler(request: Request, response: Response) {
+  async createUser(accessToken, refreshToken, profile, done) {
     try {
-      await this.usersService.createUser();
-      response.send({ foo: "bar" });
+      await this.usersService.createUser(
+        accessToken,
+        refreshToken,
+        profile,
+        done
+      );
     } catch (error) {
       console.log(error);
     }

@@ -44,7 +44,7 @@ const start = async () => {
       res.render("home", { req: req });
     });
 
-    app.get("/hello", usersController.createUserHandler);
+    app.get("/hello", usersController.createUser);
     app.listen(3000, () => {
       console.log("Express server running at port 3000");
     });
