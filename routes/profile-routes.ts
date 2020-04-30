@@ -1,13 +1,6 @@
 const router = require("express").Router();
+import { authCheck } from "../middlewares/authCheck";
 
-const authCheck = (req, res, next) => {
-  if (!req.user) {
-    // If user is not logged in
-    res.redirect("/auth/login");
-  } else {
-    next();
-  }
-};
 router.get("/", authCheck, (req, res) => {
   res.render("profile", { user: req.user });
 });
